@@ -39,15 +39,7 @@ const FileUpload = () =>{
                 )
             })}
 
-            {statusUpload.forEach(status=>{
-                if(status.message!="All Files Uploaded"){
-                 return(
-                    <p>{status.code} {status.message}</p>
-                 )   
-                }else{
-                    return(<p>{status.message}</p>)
-                } 
-            })}
+            {console.log(statusUpload)}
         </div>
     )
 }
