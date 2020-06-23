@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "firebase": "^7.15.3",
     "next": "^9.4.4",
     "react": "^16.13.1",
