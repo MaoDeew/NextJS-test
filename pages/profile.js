@@ -10,19 +10,10 @@ const Profile = ({hello}) =>{
         )
 }
 
-export async function getStaticProps() {
-    // Call an external API endpoint to get posts.
-    // You can use any data fetching library
-    const res = await fetch('https://us-central1-pruebasreactclase.cloudfunctions.net/helloWorld')
-    const hello = await res.json()
-  
-    // By returning { props: posts }, the Blog component
-    // will receive `posts` as a prop at build time
-    return {
-      hello: {
-        hello,
-      }
-    }
-  }
+Profile.getInitialProps = async() =>{
+    const response = await fetch("https://us-central1-pruebasreactclase.cloudfunctions.net/helloWorld");
+    const helloResponse = await response.json();
+    return {hello:helloResponse}
+}
 
 export default Profile
