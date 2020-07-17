@@ -16,10 +16,7 @@ Profile.getInitialProps = async() =>{
       });
 
     const response = await fetch("https://us-central1-pruebasreactclase.cloudfunctions.net/helloWorld",{
-        'mode': 'cors',
-        'headers': {
-            'Access-Control-Allow-Origin': '*',
-        }
+        'mode': "no-cors",
     });
     const helloResponse = await response.json();
     return {hello:helloResponse}
