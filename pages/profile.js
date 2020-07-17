@@ -11,7 +11,16 @@ const Profile = ({hello}) =>{
 }
 
 Profile.getInitialProps = async() =>{
-    const response = await fetch("https://us-central1-pruebasreactclase.cloudfunctions.net/helloWorld");
+    let header = new Headers({
+        "Access-Control-Allow-Origin": "*"
+      });
+
+    const response = await fetch("https://us-central1-pruebasreactclase.cloudfunctions.net/helloWorld",{
+        'mode': 'cors',
+        'headers': {
+            'Access-Control-Allow-Origin': '*',
+        }
+    });
     const helloResponse = await response.json();
     return {hello:helloResponse}
 }
