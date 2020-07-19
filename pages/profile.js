@@ -5,21 +5,16 @@ const Profile = ({hello}) =>{
     return (
         <Container title ="Profile">
             <h1>Profile</h1>
-            <p>{hello}</p>
+            {console.log("from firebase "+hello)}
         </Container>
         )
 }
 
 Profile.getInitialProps = async() =>{
-    let header = new Headers({
-        "Access-Control-Allow-Origin": "*"
-      });
 
-    const response = await fetch("https://us-central1-pruebasreactclase.cloudfunctions.net/helloWorld",{
-        'mode': "no-cors",
-    });
+    const response = await fetch("https://us-central1-pruebasreactclase.cloudfunctions.net/api/helloWorld");
     const helloResponse = await response.json();
-    return {hello:helloResponse}
+    return {hello:helloResponse};
 }
 
 export default Profile
